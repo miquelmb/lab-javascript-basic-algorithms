@@ -8,7 +8,7 @@ console.log(`The navigator's name is ${hacker2}`);
 
 // Iteration 2: Conditionals
 if (hacker1.length > hacker2.length){
-    console.log(`The driver has de longest name, it has ${hacker1.length} characters`);
+    console.log(`The driver has the longest name, it has ${hacker1.length} characters`);
 } else if ((hacker2.length > hacker1.length)){
     console.log(`It seems that the navigator has the longest name, it has ${hacker2.length} characters`);
 } else {
@@ -82,22 +82,45 @@ for (let j = 0; j < paragraphs.length; j++){
 console.log(`The three paragraphs have ${countingEts} et's`)
 
 // Bonus 2:
-// Create a new variable phraseToCheck and have it contain some string value.
-//Write a code that will check if the value we assigned to this variable is a Palindrome.
-//Here are some examples of palindromes:
+// Create a new variable phraseToCheck and have it contain some string value. Write a code that will check if the value we
+// assigned to this variable is a Palindrome.
+// Here are some examples of palindromes:
+//      "A man, a plan, a canal, Panama!"
+//      "Amor, Roma"
+//      "race car"
+//      "stack cats"
+//      "step on no pets"
+//      "taco cat"
+//      "put it up"
+//      "Was it a car or a cat I saw?"
+//      "No 'x' in Nixon".
 
-let phraseToCheck = "";
+//pasar frase a mayúsculas
+let phraseToCheck = "Was it a car or a cat I saw?";
+let upperCasePhrase = phraseToCheck.toUpperCase();
 
-// "A man, a plan, a canal, Panama!"
-// "Amor, Roma"
-// "race car"
-// "stack cats"
-// "step on no pets"
-// "taco cat"
-// "put it up"
-// "Was it a car or a cat I saw?" and "No 'x' in Nixon".
+//hacer que cree un array con las letras por separado desde el principio al final
 
-// Hint: If you use Google to help you to find solution to this iteration,
-//you might run into some solutions that use advanced string or array methods (such as join(),
-//reverse(), etc.). However, try to apply the knowledge you currently have since you can build
-//pretty nice solution with just using for loop, if-else statements with some break and continue... Just sayin'
+//variables para almacenar el nuevo array
+let arrayNormal = []
+let arrayReverse = []
+
+//bucle for para crear array con carácteres de la frase, y evitar espacios o símbolos del tipo . , ! ?
+for(let i = 0; i < upperCasePhrase.length; i++) {   
+    if (upperCasePhrase.charCodeAt(i) >= 65 && upperCasePhrase.charCodeAt(i) <= 90){
+        arrayNormal += upperCasePhrase[i];
+    }
+}
+//bucle como el anterior pero para dar la vuelta al string
+for (let i = upperCasePhrase.length; i >= 0; i--){
+    if (upperCasePhrase.charCodeAt(i) >= 65 && upperCasePhrase.charCodeAt(i) <= 90){
+        arrayReverse += upperCasePhrase[i];
+    }
+}
+
+//comparar strings y hacer print del caso correcto, si es palíndromo o no.
+if (arrayNormal === arrayReverse){
+    console.log("This string is a palindrome")
+} else {
+    console.log("This string is not a palindrome")
+}
